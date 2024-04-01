@@ -6,7 +6,7 @@ const intialBlog: Blog = {
     posts: JSON.parse(window.sessionStorage.getItem('posts') || "{}") || {},
 }
 
-export const BlogContextProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
+export const BlogContextProvider = ({ children }: { children: ReactNode }) => {
     const [blog, setBlog] = useState<Blog>(intialBlog)
 
     return (

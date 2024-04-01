@@ -15,7 +15,7 @@ const intialAuth: Auth = {
     user: JSON.parse(window.sessionStorage.getItem('user') || "{}") || {},
 }
 
-export const AuthContextProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
+export const AuthContextProvider = ({ children }: { children: ReactNode }) => {
     const [auth, setAuth] = useState<Auth>(intialAuth)
 
     return (
