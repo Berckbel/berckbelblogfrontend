@@ -14,7 +14,6 @@ interface AuthContextType {
     setAuth: React.Dispatch<React.SetStateAction<Auth>>;
 }
 
-
 interface Post {
     id: number,
     title: string,
@@ -25,6 +24,11 @@ interface Post {
 
 interface Blog {
     posts: Post[],
+}
+
+interface BlogContextType {
+    blog: Blog;
+    setBlog: React.Dispatch<React.SetStateAction<Blog>>;
 }
 
 interface LoginCredentials {

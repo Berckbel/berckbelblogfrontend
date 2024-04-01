@@ -1,7 +1,18 @@
+import { useBlog } from "../hooks/useBlog"
+
 export const Home = () => {
+
+    const { posts } = useBlog()
+
     return (
         <>
-            <h1>Home Page</h1>
+            {
+                posts.map(post => (
+                    <div key={post.id}>
+                        <h1>{post.title}</h1>
+                    </div>
+                ))
+            }
         </>
     )
 }

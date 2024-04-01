@@ -1,9 +1,14 @@
 import { createContext, useState, ReactNode } from 'react'
 
-const Context = createContext({})
+const Context = createContext<BlogContextType>({
+    blog: {
+        posts: [] as Post[],
+    },
+    setBlog: () => {}
+})
 
 const intialBlog: Blog = {
-    posts: JSON.parse(window.sessionStorage.getItem('posts') || "{}") || {},
+    posts: JSON.parse(window.sessionStorage.getItem('posts') || "[]") || [],
 }
 
 export const BlogContextProvider = ({ children }: { children: ReactNode }) => {
