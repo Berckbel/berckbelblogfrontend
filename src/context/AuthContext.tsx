@@ -1,6 +1,13 @@
 import { createContext, useState, ReactNode } from 'react'
 
-const Context = createContext({})
+const Context = createContext<AuthContextType>({
+    auth: {
+        refresh: '',
+        access: '',
+        user: {} as User,
+    },
+    setAuth: () => { },
+})
 
 const intialAuth: Auth = {
     refresh: window.sessionStorage.getItem('jwt_refresh') || "",
