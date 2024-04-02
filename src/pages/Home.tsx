@@ -1,3 +1,4 @@
+import { PostList } from "../components/PostList"
 import { useBlog } from "../hooks/useBlog"
 
 export const Home = () => {
@@ -6,13 +7,7 @@ export const Home = () => {
 
     return (
         <>
-            {
-                posts.map(post => (
-                    <div key={post.id}>
-                        <h1>{post.title}</h1>
-                    </div>
-                ))
-            }
+            <PostList posts={posts} />
         </>
     )
 }
