@@ -29,7 +29,7 @@ export const Register = () => {
             validationSchema={validationSchema}
             onSubmit={handleSubmit}
         >
-            <Form className={"flex flex-col min-w-96 text-3xl"}>
+            <Form className={"flex flex-col min-w-52 text-3xl"}>
                 <h3 className={"flex text-5xl justify-center mb-6 font-bold text-purple-900 p-2"}>
                     {"Register"}
                 </h3>
