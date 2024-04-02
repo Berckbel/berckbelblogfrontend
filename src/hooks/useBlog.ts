@@ -9,7 +9,6 @@ export const useBlog = () => {
     const [state, setState] = useState({ loading: false, error: false })
 
     useEffect(() => {
-        console.log("use blog")
         setState(prev => ({...prev, loading: true}))
         getPosts({ access: auth.access }).then(posts => {
             setBlog((prev: Blog) => {

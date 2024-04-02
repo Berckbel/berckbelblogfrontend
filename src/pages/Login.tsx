@@ -18,7 +18,6 @@ export const Login = () => {
 
     const handleSubmit = (formData: LoginCredentials) => {
         const { email, password } = formData
-        console.log({ email, password })
         login({ email, password })
     };
 

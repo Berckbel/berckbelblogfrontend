@@ -3,7 +3,7 @@ import { useUser } from "../hooks/useUser"
 
 export const Navbar = () => {
 
-    const { isLogged } = useUser()
+    const { isLogged, logout } = useUser()
 
     return (
         <>
@@ -14,7 +14,7 @@ export const Navbar = () => {
                     </Link>
                 </div>
                 <div className={"flex flex-col md:flex-row"}>
-                    {isLogged && <button className={"ml-auto mr-3 rounded-full p-2 hover:bg-purple-500"}>
+                    {isLogged && <button className={"ml-auto mr-3 rounded-full p-2 hover:bg-purple-500"} onClick={() => logout()}>
                         <h3>{"Logout"}</h3>
                     </button>}
                     {!isLogged && <Link to={"/login"} className={"ml-auto mr-3 rounded-full p-2 hover:bg-purple-500"}>
