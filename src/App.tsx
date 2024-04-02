@@ -13,7 +13,7 @@ function App() {
   return (
       <>
       <Navbar />
-        <main className={"p-4 m-28 flex flex-col md:flex-row justify-center"}>
+        <main className={"p-4 m-16 flex flex-col justify-center"}>
           <Route component={Home} path={"/"} />
           {!isLogged && <Route component={Login} path={"/login"} />}
           {!isLogged && <Route component={Register} path={"/register"} />}
