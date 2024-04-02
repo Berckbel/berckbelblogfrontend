@@ -7,7 +7,7 @@ export const Navbar = () => {
 
     return (
         <>
-            <header className={"min-w-max bg-purple-900 flex flex-row justify-between items-center text-white text-3xl"}>
+            <header className={"min-w-max bg-purple-900 flex flex-row justify-between items-center text-white text-3xl font-extrabold"}>
                 <div className={"flex p-3 ml-3"}>
                     <Link to={"/"} className={"rounded-full p-2 hover:bg-purple-500"}>
                         <h3>{"Home"}</h3>
