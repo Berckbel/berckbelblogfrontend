@@ -24,6 +24,7 @@ interface Post {
 
 interface Blog {
     posts: Post[],
+    selected_post: Post,
 }
 
 interface BlogContextType {
