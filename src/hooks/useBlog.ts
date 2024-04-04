@@ -23,6 +23,7 @@ export const useBlog = () => {
 
     const selectPost = useCallback(({ post }: { post: Post }) => {
         setBlog((prev: Blog) => {
+            window.sessionStorage.setItem('selected_post', JSON.stringify(post))
             return { ...prev, selected_post: post }
         })
         setLocation("/post")

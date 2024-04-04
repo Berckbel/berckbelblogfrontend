@@ -6,6 +6,8 @@ export const Post = () => {
     const { selected_post } = useBlog()
 
     return (
-        <PostItem post={selected_post} />
+        <>
+            <PostItem post={selected_post} />
+        </>
     )
 }
