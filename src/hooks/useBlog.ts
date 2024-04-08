@@ -11,14 +11,20 @@ export const useBlog = () => {
     const [state, setState] = useState({ loading: false, error: false })
 
     useEffect(() => {
-        setState(prev => ({...prev, loading: true}))
+        if(blog.posts.length > 0) {
+            return
+        }
+
+        setState(prev => ({ ...prev, loading: true }))
         getPosts({ access: auth.access }).then(posts => {
             setBlog((prev: Blog) => {
-                return {...prev, posts}
+                const newPosts = { ...prev, posts }
+                window.sessionStorage.setItem('posts', JSON.stringify(newPosts))
+                return newPosts
             })
         })
-            .catch(() => setState(prev => ({...prev, error: true})))
-            .finally(() => setState(prev => ({...prev, loading: false})))
+            .catch(() => setState(prev => ({ ...prev, error: true })))
+            .finally(() => setState(prev => ({ ...prev, loading: false })))
     }, [auth.access])
 
     const selectPost = useCallback(({ post }: { post: Post }) => {

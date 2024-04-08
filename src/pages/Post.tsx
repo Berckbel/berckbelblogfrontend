@@ -1,4 +1,4 @@
-import { PostItem } from "../components/PostItem"
+import { PostView } from "../components/PostView"
 import { useBlog } from "../hooks/useBlog"
 
 export const Post = () => {
@@ -7,7 +7,7 @@ export const Post = () => {
 
     return (
         <>
-            <PostItem post={selected_post} />
+            <PostView post={selected_post} />
         </>
     )
 }
