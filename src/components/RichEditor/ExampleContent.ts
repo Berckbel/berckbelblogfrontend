@@ -3,7 +3,7 @@ export const initialContent = `
   Example title descirption,
 </h2>
 <p>
-  this is a <em>basic</em> example of <strong>tiptap</strong>. Sure, there are all kind of basic text styles you’d probably expect.
+  this is a <em>basic</em> example of <strong>blog</strong>. Sure, there are all kind of basic text styles you’d probably expect.
 </p>
 <ul>
   <li>
