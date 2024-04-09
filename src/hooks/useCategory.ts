@@ -9,14 +9,13 @@ export const useCategory = () => {
     const [state, setState] = useState({ loading: false, error: false })
 
     useEffect(() => {
-        if(blog.categories.length > 0) return
-        
+        if (blog.categories.length > 0) return
+
         setState(prev => ({ ...prev, loading: true }))
-        getCategories({ access: auth.access }).then(categories => {
+        getCategories({ access: auth.access }).then(newCategories => {
             setBlog((prev: Blog) => {
-                const newCategories = { ...prev, categories }
                 window.sessionStorage.setItem('categories', JSON.stringify(newCategories))
-                return newCategories
+                return {...prev, categories: newCategories}
             })
         })
             .catch(() => setState(prev => ({ ...prev, error: true })))

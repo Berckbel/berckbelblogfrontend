@@ -11,16 +11,15 @@ export const useGetPosts = () => {
 
     useEffect(() => {
         setState(prev => ({ ...prev, loading: true }))
-        getPosts({ access: auth.access }).then(posts => {
+        getPosts({ access: auth.access }).then(newPosts => {
             setBlog((prev: Blog) => {
-                const newPosts = { ...prev, posts }
                 window.sessionStorage.setItem('posts', JSON.stringify(newPosts))
-                return newPosts
+                return {...prev, posts: newPosts}
             })
         })
             .catch(() => setState(prev => ({ ...prev, error: true })))
             .finally(() => setState(prev => ({ ...prev, loading: false })))
-    }, [auth.access])
+    }, [])
 
 
     return {
