@@ -56,7 +56,7 @@ export const MenuButons = ({ editor }: { editor: Editor }) => {
 
     return (
         <menu className={"flex flex-row flex-wrap"}>
-            <button
+            <button type={"button"}
                 onClick={handleClickBold}
                 disabled={
                     !editor.can()
@@ -69,7 +69,7 @@ export const MenuButons = ({ editor }: { editor: Editor }) => {
             >
                 bold
             </button>
-            <button
+            <button type={"button"}
                 onClick={handleClickItalic}
                 disabled={
                     !editor.can()
@@ -82,7 +82,7 @@ export const MenuButons = ({ editor }: { editor: Editor }) => {
             >
                 italic
             </button>
-            <button
+            <button type={"button"}
                 onClick={handleClickStrike}
                 disabled={
                     !editor.can()
@@ -95,7 +95,7 @@ export const MenuButons = ({ editor }: { editor: Editor }) => {
             >
                 strike
             </button>
-            <button
+            <button type={"button"}
                 onClick={handleClickCode}
                 disabled={
                     !editor.can()
@@ -108,70 +108,70 @@ export const MenuButons = ({ editor }: { editor: Editor }) => {
             >
                 code
             </button>
-            <button
+            <button type={"button"}
                 onClick={handleClickClearMarks}
                 className={active}
             >
                 clear marks
             </button>
-            <button
+            <button type={"button"}
                 onClick={handleClickClearNodes}
                 className={active}
             >
                 clear nodes
             </button>
-            <button
+            <button type={"button"}
                 onClick={handleClickParagraph}
                 className={editor.isActive('paragraph') ? active : unactive}
             >
                 paragraph
             </button>
-            <button
+            <button type={"button"}
                 onClick={handleClickH1}
                 className={editor.isActive('heading', { level: 1 }) ? active : unactive}
             >
                 h1
             </button>
-            <button
+            <button type={"button"}
                 onClick={handleClickH2}
                 className={editor.isActive('heading', { level: 2 }) ? active : unactive}
             >
                 h2
             </button>
-            <button
+            <button type={"button"}
                 onClick={handleClickH3}
                 className={editor.isActive('heading', { level: 3 }) ? active : unactive}
             >
                 h3
             </button>
-            <button
+            <button type={"button"}
                 onClick={handleClickBulletList}
                 className={editor.isActive('bulletList') ? active : unactive}
             >
                 bullet list
             </button>
-            <button
+            <button type={"button"}
                 onClick={handleClickOrderedList}
                 className={editor.isActive('orderedList') ? active : unactive}
             >
                 ordered list
             </button>
-            <button
+            <button type={"button"}
                 onClick={handleClickCodeBlock}
                 className={editor.isActive('codeBlock') ? active : unactive}
             >
                 code block
             </button>
-            <button
+            <button type={"button"}
                 onClick={handleClickBlockQuote}
                 className={editor.isActive('blockquote') ? active : unactive}
             >
                 blockquote
             </button>
-            <button onClick={handleClickHorizontalRule} className={active}>
+            <button type={"button"} onClick={handleClickHorizontalRule} className={active}>
                 horizontal rule
             </button>
-            <button onClick={handleClickHardBreak} className={active}>
+            <button type={"button"} onClick={handleClickHardBreak} className={active}>
                 hard break
             </button>
         </menu>
