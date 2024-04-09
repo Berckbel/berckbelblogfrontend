@@ -1,9 +1,9 @@
 import { PostList } from "../components/PostList"
-import { useBlog } from "../hooks/useBlog"
+import { useGetPosts } from "../hooks/useGetPosts"
 
 export const Home = () => {
 
-    const { posts } = useBlog()
+    const { posts } = useGetPosts()
 
     return (
         <>

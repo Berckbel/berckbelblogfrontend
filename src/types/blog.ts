@@ -47,3 +47,9 @@ interface RegisterCredentials {
     password: string,
     re_password: string,
 }
+
+interface PostForm {
+    title: string,
+    description?: string,
+    image?: File,
+}
