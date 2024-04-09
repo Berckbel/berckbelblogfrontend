@@ -22,8 +22,14 @@ interface Post {
     created_at: string,
 }
 
+interface Category {
+    id: number,
+    name: string,
+}
+
 interface Blog {
     posts: Post[],
+    categories: Category[],
     selected_post: Post,
     selected_post_edit: Post,
 }

@@ -11,7 +11,7 @@ export const PostCreate = () => {
     const [description, setDescription] = useState<string>(initialContent)
     const [image, setImage] = useState<File | null>(null)
 
-    const { isError, isLoading } = useBlog()
+    const { isError, isLoading, createPost } = useBlog()
 
     const initialValues: PostForm = {
         title: '',
@@ -44,7 +44,7 @@ export const PostCreate = () => {
         }
 
         if (!isFileError) {
-            console.log(formData)
+            createPost({ post: formData })
         }
 
     };
