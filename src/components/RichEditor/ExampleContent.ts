@@ -1,9 +1,9 @@
 export const initialContent = `
 <h2>
-  Hi there,
+  Example title descirption,
 </h2>
 <p>
-  this is a <em>basic</em> example of <strong>tiptap</strong>. Sure, there are all kind of basic text styles you’d probably expect from a text editor. But wait until you see the lists:
+  this is a <em>basic</em> example of <strong>tiptap</strong>. Sure, there are all kind of basic text styles you’d probably expect.
 </p>
 <ul>
   <li>
@@ -20,7 +20,7 @@ export const initialContent = `
 display: none;
 }</code></pre>
 <p>
-  I know, I know, this is impressive. It’s only the tip of the iceberg though. Give it a try and click a little bit around. Don’t forget to check the other examples too.
+  I know, I know, this is impressive.
 </p>
 <blockquote>
   Wow, that’s amazing. Good work, boy! 👏
