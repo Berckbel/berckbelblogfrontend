@@ -25,6 +25,7 @@ interface Post {
 interface Category {
     id: number,
     name: string,
+    created_at: string
 }
 
 interface Blog {

@@ -5,6 +5,7 @@ import { Editor } from '../components/RichEditor/Editor';
 import { initialContent } from '../components/RichEditor/ExampleContent';
 import React, { useState } from 'react';
 import { validateFile } from '../hepers/CustomValidations';
+import { CategoryList } from '../components/Category/CategoryList';
 
 export const PostCreate = () => {
 
@@ -72,6 +73,10 @@ export const PostCreate = () => {
                         component={"div"}
                         className={"text-red-600 text-xl mb-2"}
                     />
+                </div>
+                <div className={"flex flex-col"}>
+                    <label htmlFor={"category"}>{"Category"}</label>
+                    <CategoryList />
                 </div>
                 <div className={"flex flex-col"}>
                     <label htmlFor={"image"}>{"Image"}</label>
