@@ -3,11 +3,11 @@ import { useGetPosts } from "../hooks/useGetPosts"
 
 export const Home = () => {
 
-    const { posts } = useGetPosts()
+    const { existPosts, posts } = useGetPosts()
 
     return (
         <>
-            <PostList posts={posts} />
+            {existPosts && <PostList posts={posts} />}
         </>
     )
 }

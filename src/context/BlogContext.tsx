@@ -3,7 +3,8 @@ import { createContext, useState, ReactNode } from 'react'
 const Context = createContext<BlogContextType>({
     blog: {
         posts: [] as Post[],
-        selected_post: {} as Post
+        selected_post: {} as Post,
+        selected_post_edit: {} as Post
     },
     setBlog: () => {}
 })
@@ -11,6 +12,7 @@ const Context = createContext<BlogContextType>({
 const intialBlog: Blog = {
     posts: JSON.parse(window.sessionStorage.getItem('posts') || "[]") || [],
     selected_post: JSON.parse(window.sessionStorage.getItem('selected_post') || "{}") || {},
+    selected_post_edit: JSON.parse(window.sessionStorage.getItem('selected_post_edit') || "{}") || {},
 }
 
 export const BlogContextProvider = ({ children }: { children: ReactNode }) => {

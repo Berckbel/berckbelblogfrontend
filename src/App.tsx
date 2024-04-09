@@ -7,6 +7,7 @@ import { Navbar } from './components/Navbar'
 import { useUser } from './hooks/useUser'
 import { Post } from './pages/Post'
 import { PostCreate } from './pages/PostCreate'
+import { PostEdit } from './pages/PostEdit'
 
 function App() {
 
@@ -18,7 +19,8 @@ function App() {
         <main className={"p-4 m-16 flex flex-col justify-center"}>
           <Route component={Home} path={"/"} />
           <Route component={Post} path={"/post"} />
-          <Route component={PostCreate} path={"/post/create"} />
+          {isLogged &&<Route component={PostEdit} path={"/post/edit"} />}
+          {isLogged &&<Route component={PostCreate} path={"/post/create"} />}
           {!isLogged && <Route component={Login} path={"/login"} />}
           {!isLogged && <Route component={Register} path={"/register"} />}
         </main>

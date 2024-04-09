@@ -25,6 +25,7 @@ interface Post {
 interface Blog {
     posts: Post[],
     selected_post: Post,
+    selected_post_edit: Post,
 }
 
 interface BlogContextType {
@@ -49,6 +50,13 @@ interface RegisterCredentials {
 }
 
 interface PostForm {
+    title: string,
+    description?: string,
+    image?: File,
+}
+
+interface PostEditForm {
+    id: number,
     title: string,
     description?: string,
     image?: File,
