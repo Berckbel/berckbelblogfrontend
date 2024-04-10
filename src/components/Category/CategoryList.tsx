@@ -4,7 +4,6 @@ import { CategoryItem } from "./CategoryItem"
 
 export const CategoryList = () => {
     const { existCategories, categories } = useCategory()
-    console.log(categories)
     return (
         <>
             {existCategories && <Field as={"select"} name={"category"}>
