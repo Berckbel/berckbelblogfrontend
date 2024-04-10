@@ -60,6 +60,7 @@ interface PostForm {
     title: string,
     description?: string,
     image?: File,
+    category_id?: number,
 }
 
 interface PostEditForm {
