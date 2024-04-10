@@ -1,4 +1,4 @@
-import { PostList } from "../components/PostList"
+import { PostList } from "../components/Post/PostList"
 import { useGetPosts } from "../hooks/useGetPosts"
 
 export const Home = () => {

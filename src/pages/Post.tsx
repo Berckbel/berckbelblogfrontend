@@ -1,4 +1,4 @@
-import { PostView } from "../components/PostView"
+import { PostView } from "../components/Post/PostView"
 import { useBlog } from "../hooks/useBlog"
 
 export const Post = () => {

@@ -1,4 +1,4 @@
-import { RichText } from "./RichEditor/RichText"
+import { RichText } from "../RichEditor/RichText"
 
 export const PostView = ({ post }: { post: Post }) => {
 

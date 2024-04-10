@@ -1,4 +1,4 @@
-import { useBlog } from "../hooks/useBlog"
+import { useBlog } from "../../hooks/useBlog"
 
 export const PostItem = ({ post }: { post: Post }) => {
 
