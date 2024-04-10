@@ -9,7 +9,7 @@ export const CategoryList = () => {
         <>
             {existCategories && <Field as={"select"} name={"category"}>
                 {categories.map(category => (
-                    <CategoryItem category={category} />
+                    <CategoryItem key={category.id} category={category} />
                 ))}
             </Field>}
         </>
