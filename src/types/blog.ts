@@ -69,3 +69,10 @@ interface PostEditForm {
     description?: string,
     image?: File,
 }
+
+interface PostComment {
+    id: number,
+    comment: string,
+    created_at: string,
+    user: User
+}
