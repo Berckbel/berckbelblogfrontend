@@ -1,9 +1,11 @@
+import { useGetPosts } from "../../hooks/useGetPosts"
 import { PostItem } from "./PostItem"
 
-export const PostList = ({ posts }: { posts: Post[] } = { posts: [] }) => {
+export const PostList = () => {
+    const { existPosts, posts } = useGetPosts()
     return (
         <>
-            {posts.map(post => (
+            {existPosts && posts.map(post => (
                 <PostItem key={post.id} post={post} />
             ))}
         </>
