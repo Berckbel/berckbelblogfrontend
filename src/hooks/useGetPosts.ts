@@ -1,17 +1,15 @@
 import { useEffect, useState } from "react";
-import { useGlobalAuth } from "./useAuthContext";
 import { getPosts } from "../services/getPosts";
 import { useGlobalBlog } from "./useBlogContext";
 
 export const useGetPosts = () => {
 
-    const { auth } = useGlobalAuth()
     const { blog, setBlog } = useGlobalBlog()
     const [state, setState] = useState({ loading: false, error: false })
 
     useEffect(() => {
         setState(prev => ({ ...prev, loading: true }))
-        getPosts({ access: auth.access }).then(newPosts => {
+        getPosts().then(newPosts => {
             setBlog((prev: Blog) => {
                 window.sessionStorage.setItem('posts', JSON.stringify(newPosts))
                 return {...prev, posts: newPosts}
