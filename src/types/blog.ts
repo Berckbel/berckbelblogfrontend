@@ -9,6 +9,8 @@ interface Post {
     description: string,
     image_url: string,
     created_at: string,
+    category_id: number,
+    user: User,
 }
 
 
@@ -68,10 +70,12 @@ interface PostForm {
 }
 
 interface PostEditForm {
-    id: number,
+    post_id: number,
     title: string,
     description?: string,
     image?: File,
+    category_id?: number,
+    user: User
 }
 
 interface PostComment {
