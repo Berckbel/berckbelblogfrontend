@@ -49,7 +49,7 @@ export const CommentForm = () => {
                 </div>
                 <button
                     type={"submit"}
-                    disabled={false}
+                    disabled={isLoading}
                     className={"mt-2 p-2 font-bold text-white bg-purple-950 rounded-md"}
                 >
                     {"Create"}
