@@ -13,7 +13,7 @@ export const CategoryFilter = () => {
     };
 
     const validationSchema = Yup.object({
-        category_id: Yup.number().min(1, 'Post Required'),
+        //category_id: Yup.number().min(1, 'Post Required'),
     });
 
     const handleSubmit = (formData: { category_id: number }) => {
