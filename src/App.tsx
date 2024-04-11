@@ -8,6 +8,7 @@ import { useUser } from './hooks/useUser'
 import { Post } from './pages/Post'
 import { PostCreate } from './pages/PostCreate'
 import { PostEdit } from './pages/PostEdit'
+import { Profile } from './pages/Profile'
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
           <Route component={Post} path={"/post"} />
           {isLogged &&<Route component={PostEdit} path={"/post/edit"} />}
           {isLogged &&<Route component={PostCreate} path={"/post/create"} />}
+          {isLogged &&<Route component={Profile} path={"/profile"} />}
           {!isLogged && <Route component={Login} path={"/login"} />}
           {!isLogged && <Route component={Register} path={"/register"} />}
         </main>

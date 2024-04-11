@@ -6,7 +6,7 @@ export const PostItem = ({ post }: { post: Post }) => {
 
     return (
         <div key={post.id} className={"cursor-pointer mb-10"} onClick={() => selectPost({ post })}>
-            <h1 className={"text-purple-600 text-center text-4xl font-bold"}>{post.title}</h1>
+            <h1 className={"text-purple-600 text-4xl font-black mb-5 capitalize"}>{post.title}</h1>
             <img
                 src={`${import.meta.env.VITE_BLOG_BACKEND_BASE_URL}${post.image_url}`}
                 alt={post.title}

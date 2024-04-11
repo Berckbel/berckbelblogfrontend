@@ -59,6 +59,7 @@ export const useUser = () => {
         isLogged: Boolean(auth.access),
         isLoading: state.loading,
         isError: state.error,
+        user: auth.user,
         logout,
         login,
         register,

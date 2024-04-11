@@ -14,6 +14,9 @@ export const Navbar = () => {
                     </Link>
                 </div>
                 <div className={"flex flex-col md:flex-row"}>
+                    {isLogged && <Link to={"/profile"} className={"ml-auto mr-3 rounded-full p-2 hover:bg-purple-500"}>
+                        <h3>{"Profile"}</h3>
+                    </Link>}
                     {isLogged && <button className={"ml-auto mr-3 rounded-full p-2 hover:bg-purple-500"} onClick={() => logout()}>
                         <h3>{"Logout"}</h3>
                     </button>}
