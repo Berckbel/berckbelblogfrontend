@@ -1,8 +1,8 @@
-import { useComment } from "../../hooks/useComment"
+import { useGetComments } from "../../hooks/useGetComments"
 import { CommentItem } from "./CommentItem"
 
 export const CommentList = () => {
-    const { existComments, comments } = useComment()
+    const { existComments, comments } = useGetComments()
     return (
         <>
             {existComments && comments.map(comment => (

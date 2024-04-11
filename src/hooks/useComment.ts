@@ -1,26 +1,29 @@
-import { useEffect, useState } from "react"
-import { getComments } from "../services/getComments"
-import { useBlog } from "./useBlog"
+import { useCallback, useState } from "react"
+import { useGlobalAuth } from "./useAuthContext"
+import { useGlobalBlog } from "./useBlogContext"
+import { createComment } from "../services/createComment"
 
 export const useComment = () => {
-    const { selected_post } = useBlog()
+    const { auth } = useGlobalAuth()
+    const { setBlog } = useGlobalBlog()
     const [state, setState] = useState({ loading: false, error: false })
-    const [comments, setComments] = useState<PostComment[]>([])
 
-    useEffect(() => {
+    const createNewComment = useCallback(({ newComment }: { newComment: PostCommentForm }) => {
         setState(prev => ({ ...prev, loading: true }))
-        getComments({ post_id: selected_post.id }).then(comments => {
-            setComments(comments)
+        createComment({ newComment, access: auth.access })
+        .then(newComment => {
+            setBlog((prev: Blog) => {
+                const newComments = [...prev.comments, newComment]
+                return {...prev, comments: newComments}
+            })
         })
-            .catch(() => setState(prev => ({ ...prev, error: true })))
-            .finally(() => setState(prev => ({ ...prev, loading: false })))
-    }, [selected_post])
-
+        .catch(() => setState(prev => ({ ...prev, error: true })))
+        .finally(() => setState(prev => ({ ...prev, loading: false })))
+    }, [])
 
     return {
         isLoading: state.loading,
         isError: state.error,
-        existComments: comments.length,
-        comments: comments,
+        createNewComment,
     }
 }

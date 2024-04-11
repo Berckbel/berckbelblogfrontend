@@ -33,6 +33,7 @@ interface Blog {
     categories: Category[],
     selected_post: Post,
     selected_post_edit: Post,
+    comments: PostComment[]
 }
 
 interface BlogContextType {
@@ -75,4 +76,9 @@ interface PostComment {
     comment: string,
     created_at: string,
     user: User
+}
+
+interface PostCommentForm {
+    comment: string,
+    post_id: number,
 }
