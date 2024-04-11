@@ -37,6 +37,12 @@ export const useBlog = () => {
                     return { ...prev, posts: newPosts }
                 })
 
+                setAuth((prev: Auth) => {
+                    const newPosts = [...prev.user_posts, newPost]
+                    window.sessionStorage.setItem('user_posts', JSON.stringify(newPosts))
+                    return {...prev, user_posts: newPosts}
+                })
+
             })
             .catch(() => setState(prev => ({ ...prev, error: true })))
             .finally(() => setState(prev => ({ ...prev, loading: false })))
