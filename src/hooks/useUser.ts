@@ -14,7 +14,7 @@ export const useUser = () => {
         window.sessionStorage.removeItem('jwt_refresh')
         window.sessionStorage.removeItem('jwt_access')
         window.sessionStorage.removeItem('user')
-        setAuth({ refresh: "", access: "", user: {} as User })
+        setAuth({ refresh: "", access: "", user: {} as User, user_posts: [] as Post[] })
 
         setLocation("/")
     }, [])

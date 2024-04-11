@@ -5,6 +5,7 @@ const Context = createContext<AuthContextType>({
         refresh: '',
         access: '',
         user: {} as User,
+        user_posts: [] as Post[]
     },
     setAuth: () => { },
 })
@@ -13,6 +14,7 @@ const intialAuth: Auth = {
     refresh: window.sessionStorage.getItem('jwt_refresh') || "",
     access: window.sessionStorage.getItem('jwt_access') || "",
     user: JSON.parse(window.sessionStorage.getItem('user') || "{}") || {},
+    user_posts: JSON.parse(window.sessionStorage.getItem('user_posts') || "[]") || [],
 }
 
 export const AuthContextProvider = ({ children }: { children: ReactNode }) => {

@@ -1,8 +1,7 @@
-import { useUser } from "../hooks/useUser"
+import { PostUserList } from "../components/Profile/PostUserList"
 
 export const Profile = () => {
-    const { user } = useUser()
     return (
-        <h1>{`Welcome to your profile ${user.email}`}</h1>
+        <PostUserList />
     )
 }

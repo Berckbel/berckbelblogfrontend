@@ -3,23 +3,25 @@ interface User {
     email: string,
 }
 
-interface Auth {
-    refresh: string,
-    access: string,
-    user: User
-}
-
-interface AuthContextType {
-    auth: Auth;
-    setAuth: React.Dispatch<React.SetStateAction<Auth>>;
-}
-
 interface Post {
     id: number,
     title: string,
     description: string,
     image_url: string,
     created_at: string,
+}
+
+
+interface Auth {
+    refresh: string,
+    access: string,
+    user: User
+    user_posts: Post[]
+}
+
+interface AuthContextType {
+    auth: Auth;
+    setAuth: React.Dispatch<React.SetStateAction<Auth>>;
 }
 
 interface Category {
