@@ -42,7 +42,7 @@ export const useBlog = () => {
                     window.sessionStorage.setItem('user_posts', JSON.stringify(newPosts))
                     return {...prev, user_posts: newPosts}
                 })
-
+                setLocation("/")
             })
             .catch(() => setState(prev => ({ ...prev, error: true })))
             .finally(() => setState(prev => ({ ...prev, loading: false })))
@@ -69,6 +69,8 @@ export const useBlog = () => {
                     window.sessionStorage.setItem('user_posts', JSON.stringify(newPosts))
                     return {...prev, user_posts: newPosts}
                 })
+
+                setLocation("/profile")
             })
             .catch(() => setState(prev => ({ ...prev, error: true })))
             .finally(() => setState(prev => ({ ...prev, loading: false })))
