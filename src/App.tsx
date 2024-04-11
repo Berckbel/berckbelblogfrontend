@@ -3,7 +3,7 @@ import { Route } from "wouter"
 import { Home } from './pages/Home'
 import { Login } from './pages/Login'
 import { Register } from './pages/Register'
-import { Navbar } from './components/Navbar'
+import { Navbar } from './components/Header/Navbar'
 import { useUser } from './hooks/useUser'
 import { Post } from './pages/Post'
 import { PostCreate } from './pages/PostCreate'

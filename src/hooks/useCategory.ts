@@ -1,30 +1,24 @@
-import { useEffect, useState } from "react"
+import { useCallback, useState } from "react"
 import { useGlobalBlog } from "./useBlogContext"
-import { getCategories } from "../services/getCategories"
 
 export const useCategory = () => {
     const { blog, setBlog } = useGlobalBlog()
     const [state, setState] = useState({ loading: false, error: false })
 
-    useEffect(() => {
-        if (blog.categories.length > 0) return
-
+    const selectCategory = useCallback(({ category }: { category: Category }) => {
         setState(prev => ({ ...prev, loading: true }))
-        getCategories().then(newCategories => {
             setBlog((prev: Blog) => {
-                window.sessionStorage.setItem('categories', JSON.stringify(newCategories))
-                return {...prev, categories: newCategories}
+                window.sessionStorage.setItem('selected_category', JSON.stringify(category))
+                return {...prev, selected_category: category}
             })
-        })
-            .catch(() => setState(prev => ({ ...prev, error: true })))
-            .finally(() => setState(prev => ({ ...prev, loading: false })))
     }, [])
-
 
     return {
         isLoading: state.loading,
         isError: state.error,
-        existCategories: blog.categories.length,
         categories: blog.categories,
+        existSelectedCategory: blog.selected_category.id,
+        selected_category: blog.selected_category,
+        selectCategory,
     }
 }

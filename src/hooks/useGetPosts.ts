@@ -9,7 +9,7 @@ export const useGetPosts = () => {
 
     useEffect(() => {
         setState(prev => ({ ...prev, loading: true }))
-        getPosts().then(newPosts => {
+        getPosts({ category_id: blog.selected_category.id }).then(newPosts => {
             setBlog((prev: Blog) => {
                 window.sessionStorage.setItem('posts', JSON.stringify(newPosts))
                 return {...prev, posts: newPosts}
@@ -17,7 +17,7 @@ export const useGetPosts = () => {
         })
             .catch(() => setState(prev => ({ ...prev, error: true })))
             .finally(() => setState(prev => ({ ...prev, loading: false })))
-    }, [])
+    }, [blog.selected_category])
 
 
     return {

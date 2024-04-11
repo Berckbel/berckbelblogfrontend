@@ -1,5 +1,5 @@
 import { Link } from "wouter"
-import { useUser } from "../hooks/useUser"
+import { useUser } from "../../hooks/useUser"
 
 export const Navbar = () => {
 

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useBlog } from "../../hooks/useBlog";
-import { initialSelectOption } from "../Category/CategoryConst";
+import { initialSelectOption } from "../../hepers/CategoryConst";
 import { validateFile } from "../../hepers/CustomValidations";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as Yup from 'yup';

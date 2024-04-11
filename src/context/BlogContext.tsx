@@ -4,6 +4,7 @@ const Context = createContext<BlogContextType>({
     blog: {
         posts: [] as Post[],
         categories: [] as Category[],
+        selected_category: {} as Category,
         selected_post: {} as Post,
         selected_post_edit: {} as Post,
         comments: [] as PostComment[],
@@ -14,6 +15,7 @@ const Context = createContext<BlogContextType>({
 const intialBlog: Blog = {
     posts: JSON.parse(window.sessionStorage.getItem('posts') || "[]") || [],
     categories: JSON.parse(window.sessionStorage.getItem('categories') || "[]") || [],
+    selected_category: JSON.parse(window.sessionStorage.getItem('selected_category') || "{}") || {},
     selected_post: JSON.parse(window.sessionStorage.getItem('selected_post') || "{}") || {},
     selected_post_edit: JSON.parse(window.sessionStorage.getItem('selected_post_edit') || "{}") || {},
     comments: []

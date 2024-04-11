@@ -31,6 +31,7 @@ interface Category {
 interface Blog {
     posts: Post[],
     categories: Category[],
+    selected_category: Category,
     selected_post: Post,
     selected_post_edit: Post,
     comments: PostComment[]

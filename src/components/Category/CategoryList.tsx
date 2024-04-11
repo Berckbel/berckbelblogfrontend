@@ -1,10 +1,10 @@
 import { Field } from "formik"
-import { useCategory } from "../../hooks/useCategory"
+import { useGetCategories } from "../../hooks/useGetCategories"
 import { CategoryItem } from "./CategoryItem"
-import { initialSelectOption } from "./CategoryConst"
+import { initialSelectOption } from "../../hepers/CategoryConst"
 
 export const CategoryList = () => {
-    const { existCategories, categories } = useCategory()
+    const { existCategories, categories } = useGetCategories()
     return (
         <>
             {existCategories && <Field
