@@ -1,6 +1,6 @@
 import axios from "axios"
 
-export const CreatePost = ({ newPost, access }: { newPost: PostForm, access: string }): Promise<Post> => {
+export const createPost = ({ newPost, access }: { newPost: PostForm, access: string }): Promise<Post> => {
     const url: string = `${import.meta.env.VITE_BLOG_BACKEND_BASE_URL}/${import.meta.env.VITE_BLOG_API_PATH}`
     const data = newPost
     const config = access ?

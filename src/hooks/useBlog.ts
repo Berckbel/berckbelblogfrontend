@@ -1,7 +1,7 @@
 import { useCallback, useState } from "react";
 import { useGlobalBlog } from "./useBlogContext";
 import { useLocation } from "wouter";
-import { CreatePost } from "../services/createPost";
+import { createPost } from "../services/createPost";
 import { useGlobalAuth } from "./useAuthContext";
 
 export const useBlog = () => {
@@ -26,9 +26,9 @@ export const useBlog = () => {
         setLocation("/post/edit")
     }, [])
 
-    const createPost = useCallback(({ post }: { post: PostForm }) => {
+    const createNewPost = useCallback(({ post }: { post: PostForm }) => {
         setState(prev => ({ ...prev, loading: true }))
-        CreatePost({ newPost: post, access: auth.access})
+        createPost({ newPost: post, access: auth.access})
         .then(newPost => {
             setBlog((prev: Blog) => {
                 const newPosts = [...prev.posts, newPost]
@@ -47,6 +47,6 @@ export const useBlog = () => {
         selected_post_edit: blog.selected_post_edit,
         selectPost,
         selectPostToEdit,
-        createPost,
+        createNewPost,
     }
 }
