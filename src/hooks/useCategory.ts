@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react"
-import { useGlobalAuth } from "./useAuthContext"
 import { useGlobalBlog } from "./useBlogContext"
 import { getCategories } from "../services/getCategories"
 
 export const useCategory = () => {
-    const { auth } = useGlobalAuth()
     const { blog, setBlog } = useGlobalBlog()
     const [state, setState] = useState({ loading: false, error: false })
 
@@ -12,7 +10,7 @@ export const useCategory = () => {
         if (blog.categories.length > 0) return
 
         setState(prev => ({ ...prev, loading: true }))
-        getCategories({ access: auth.access }).then(newCategories => {
+        getCategories().then(newCategories => {
             setBlog((prev: Blog) => {
                 window.sessionStorage.setItem('categories', JSON.stringify(newCategories))
                 return {...prev, categories: newCategories}
