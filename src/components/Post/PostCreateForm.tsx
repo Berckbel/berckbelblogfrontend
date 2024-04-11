@@ -59,11 +59,11 @@ export const PostCreateForm = () => {
             onSubmit={handleSubmit}
         >
             <Form className={"flex flex-col min-w-52 text-3xl"}>
-                <h3 className={"flex text-5xl justify-center mb-6 font-bold text-purple-900 p-2"}>
+                <h3 className={"flex text-5xl justify-center mb-6 font-black text-white bg-purple-900 p-2"}>
                     {"Create Post"}
                 </h3>
                 <div className={"flex flex-col"}>
-                    <label htmlFor={"title"}>{"Title"}</label>
+                    <label htmlFor={"title"} className={"font-bold text-purple-950 mb-2"}>{"Title"}</label>
                     <Field
                         id={"title"}
                         name={"title"}
@@ -77,7 +77,7 @@ export const PostCreateForm = () => {
                     />
                 </div>
                 <div className={"flex flex-col"}>
-                    <label htmlFor={"category_id"}>{"Category"}</label>
+                    <label htmlFor={"category_id"} className={"font-bold text-purple-950 mb-3"}>{"Category"}</label>
                     <CategoryList />
                     <ErrorMessage
                         name={"category_id"}
@@ -86,7 +86,7 @@ export const PostCreateForm = () => {
                     />
                 </div>
                 <div className={"flex flex-col"}>
-                    <label htmlFor={"image"}>{"Image"}</label>
+                    <label htmlFor={"image"} className={"font-bold text-purple-950 mb-2"}>{"Image"}</label>
                     <input
                         id={"image"}
                         name={"image"}
@@ -97,7 +97,7 @@ export const PostCreateForm = () => {
                     <div id={"imageError"} className={"text-red-600 text-xl mb-2"}></div>
                 </div>
                 <div className={"flex flex-col"}>
-                    <label htmlFor={"description"}>{"Description"}</label>
+                    <label htmlFor={"description"} className={"font-bold text-purple-950 mb-2"}>{"Description"}</label>
                     <Editor
                         initialContent={initialContent}
                         setDescription={setDescription}
