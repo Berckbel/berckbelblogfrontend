@@ -89,3 +89,9 @@ interface PostCommentForm {
     comment: string,
     post_id: number,
 }
+
+interface PostCommentEditForm {
+    comment: string,
+    comment_id: number,
+    post_id: number,
+}

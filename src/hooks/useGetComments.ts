@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react"
 import { getComments } from "../services/getComments"
 import { useGlobalBlog } from "./useBlogContext"
+import { useGlobalAuth } from "./useAuthContext"
 
 export const useGetComments = () => {
     const { blog, setBlog } = useGlobalBlog()
+    const { auth } = useGlobalAuth()
     const [state, setState] = useState({ loading: false, error: false })
 
     useEffect(() => {
@@ -23,5 +25,6 @@ export const useGetComments = () => {
         isError: state.error,
         existComments: blog.comments.length,
         comments: blog.comments,
+        user_id: auth.user.id
     }
 }

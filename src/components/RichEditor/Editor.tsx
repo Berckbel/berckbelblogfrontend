@@ -4,7 +4,7 @@ import StarterKit from '@tiptap/starter-kit';
 import { options } from './EditorOptions';
 import { MenuEditor } from './MenuEditor';
 
-export const Editor = ({ initialContent, setDescription }: { initialContent: string,  setDescription: (description: string) => void }) => {
+export const Editor = ({ initialContent, setDescription }: { initialContent: string, setDescription: (description: string) => void }) => {
 
     const [content, setContent] = useState<string>(initialContent)
     const [editable, setEditable] = useState<boolean>(true)
