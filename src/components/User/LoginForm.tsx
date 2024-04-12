@@ -1,6 +1,8 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as Yup from 'yup';
 import { useUser } from "../../hooks/useUser";
+import { Loader } from "../Feedback/Loader";
+import { ErrorMessage as ErrorMessageFeed } from "../Feedback/ErrorMessage";
 
 export const LoginForm = () => {
     const { login, isError, isLoading } = useUser()
@@ -67,8 +69,8 @@ export const LoginForm = () => {
                 >
                     {"Login"}
                 </button>
-                {isLoading&&<h3 className={"text-purple-600"}>{"Loading..."}</h3>}
-                {isError&&<h3 className={"text-purple-950"}>{"Not logged in"}</h3>}
+                {isLoading && <Loader />}
+                {isError && <ErrorMessageFeed />}
             </Form>
         </Formik>
     );

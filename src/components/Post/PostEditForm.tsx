@@ -5,6 +5,8 @@ import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as Yup from 'yup';
 import { Editor } from "../RichEditor/Editor";
 import { CategoryList } from "../Category/CategoryList";
+import { Loader } from "../Feedback/Loader";
+import { ErrorMessage as ErrorMessageFeed } from "../Feedback/ErrorMessage";
 
 export const PostEditForm = () => {
 
@@ -57,7 +59,7 @@ export const PostEditForm = () => {
             onSubmit={handleSubmit}
         >
             <Form className={"flex flex-col min-w-52 text-3xl"}>
-            <h3 className={"flex text-5xl justify-center mb-6 font-black text-white bg-purple-900 p-2"}>
+                <h3 className={"flex text-5xl justify-center mb-6 font-black text-white bg-purple-900 p-2"}>
                     {"Edit Post"}
                 </h3>
                 <div className={"flex flex-col"}>
@@ -107,8 +109,8 @@ export const PostEditForm = () => {
                 >
                     {"Edit"}
                 </button>
-                {isLoading && <h3 className={"text-purple-600"}>{"Loading..."}</h3>}
-                {isError && <h3 className={"text-purple-950"}>{"Not edited"}</h3>}
+                {isLoading && <Loader />}
+                {isError && <ErrorMessageFeed />}
             </Form>
         </Formik>
     );

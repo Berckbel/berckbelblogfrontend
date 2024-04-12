@@ -9,13 +9,13 @@ export const useGetUserPosts = () => {
 
     useEffect(() => {
 
-        if(auth.user_posts.length > 0) return
+        if (auth.user_posts.length > 0) return
 
         setState(prev => ({ ...prev, loading: true }))
         getUserPosts({ access: auth.access }).then(userPosts => {
             setAuth((prev: Auth) => {
                 window.sessionStorage.setItem('user_posts', JSON.stringify(userPosts))
-                return {...prev, user_posts: userPosts}
+                return { ...prev, user_posts: userPosts }
             })
         })
             .catch(() => setState(prev => ({ ...prev, error: true })))

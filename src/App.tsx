@@ -17,18 +17,18 @@ function App() {
   const { existSelectedPost, existSelectedPostEdit } = useBlog()
 
   return (
-      <>
+    <>
       <Navbar />
-        <main className={"p-4 m-8 flex flex-col justify-center"}>
-          <Route component={Home} path={"/"} />
-          {existSelectedPost && <Route component={Post} path={"/post"} />}
-          {existSelectedPostEdit && isLogged &&<Route component={PostEdit} path={"/post/edit"} />}
-          {isLogged &&<Route component={PostCreate} path={"/post/create"} />}
-          {isLogged &&<Route component={Profile} path={"/profile"} />}
-          {!isLogged && <Route component={Login} path={"/login"} />}
-          {!isLogged && <Route component={Register} path={"/register"} />}
-        </main>
-      </>
+      <main className={"p-4 m-8 flex flex-col justify-center"}>
+        <Route component={Home} path={"/"} />
+        {existSelectedPost && <Route component={Post} path={"/post"} />}
+        {existSelectedPostEdit && isLogged && <Route component={PostEdit} path={"/post/edit"} />}
+        {isLogged && <Route component={PostCreate} path={"/post/create"} />}
+        {isLogged && <Route component={Profile} path={"/profile"} />}
+        {!isLogged && <Route component={Login} path={"/login"} />}
+        {!isLogged && <Route component={Register} path={"/register"} />}
+      </main>
+    </>
   )
 }
 

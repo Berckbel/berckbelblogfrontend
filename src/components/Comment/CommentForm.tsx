@@ -2,6 +2,8 @@ import { Formik, Form, Field, ErrorMessage, FormikHelpers } from 'formik';
 import * as Yup from 'yup';
 import { useBlog } from '../../hooks/useBlog';
 import { useComment } from '../../hooks/useComment';
+import { Loader } from '../Feedback/Loader';
+import { ErrorMessage as ErrorMessageFeed } from '../Feedback/ErrorMessage';
 
 export const CommentForm = () => {
 
@@ -54,8 +56,8 @@ export const CommentForm = () => {
                 >
                     {"Create"}
                 </button>
-                {isLoading && <h3 className={"text-purple-600"}>{"Loading..."}</h3>}
-                {isError && <h3 className={"text-purple-950"}>{"Not created"}</h3>}
+                {isLoading && <Loader />}
+                {isError && <ErrorMessageFeed />}
             </Form>
         </Formik>
     );

@@ -1,6 +1,6 @@
 import { useBlog } from "../../hooks/useBlog"
 
-export const ViewPostButton = ({ post }: { post: Post}) => {
+export const ViewPostButton = ({ post }: { post: Post }) => {
 
     const { selectPost } = useBlog()
 

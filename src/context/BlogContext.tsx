@@ -9,7 +9,7 @@ const Context = createContext<BlogContextType>({
         selected_post_edit: {} as Post,
         comments: [] as PostComment[],
     },
-    setBlog: () => {}
+    setBlog: () => { }
 })
 
 const intialBlog: Blog = {

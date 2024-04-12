@@ -7,6 +7,8 @@ import * as Yup from 'yup';
 import { CategoryList } from "../Category/CategoryList";
 import { initialContent } from "../RichEditor/ExampleContent";
 import { Editor } from "../RichEditor/Editor";
+import { Loader } from "../Feedback/Loader";
+import { ErrorMessage as ErrorMessageFeed } from "../Feedback/ErrorMessage";
 
 export const PostCreateForm = () => {
     const [description, setDescription] = useState<string>(initialContent)
@@ -110,8 +112,8 @@ export const PostCreateForm = () => {
                 >
                     {"Create"}
                 </button>
-                {isLoading && <h3 className={"text-purple-600"}>{"Loading..."}</h3>}
-                {isError && <h3 className={"text-purple-950"}>{"Not created"}</h3>}
+                {isLoading && <Loader />}
+                {isError && <ErrorMessageFeed />}
             </Form>
         </Formik>
     );

@@ -12,7 +12,7 @@ export const useGetPosts = () => {
         getPosts({ category_id: blog.selected_category.id }).then(newPosts => {
             setBlog((prev: Blog) => {
                 window.sessionStorage.setItem('posts', JSON.stringify(newPosts))
-                return {...prev, posts: newPosts}
+                return { ...prev, posts: newPosts }
             })
         })
             .catch(() => setState(prev => ({ ...prev, error: true })))

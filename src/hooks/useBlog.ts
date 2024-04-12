@@ -40,7 +40,7 @@ export const useBlog = () => {
                 setAuth((prev: Auth) => {
                     const newPosts = [...prev.user_posts, newPost]
                     window.sessionStorage.setItem('user_posts', JSON.stringify(newPosts))
-                    return {...prev, user_posts: newPosts}
+                    return { ...prev, user_posts: newPosts }
                 })
                 setLocation("/")
             })
@@ -67,7 +67,7 @@ export const useBlog = () => {
                     const filteredPosts = prev.user_posts.filter(user_post => user_post.id !== editedPost.id)
                     const newPosts = [...filteredPosts, editedPost]
                     window.sessionStorage.setItem('user_posts', JSON.stringify(newPosts))
-                    return {...prev, user_posts: newPosts}
+                    return { ...prev, user_posts: newPosts }
                 })
 
                 setLocation("/profile")

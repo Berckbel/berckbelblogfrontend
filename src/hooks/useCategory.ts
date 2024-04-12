@@ -7,10 +7,10 @@ export const useCategory = () => {
 
     const selectCategory = useCallback(({ category }: { category: Category }) => {
         setState(prev => ({ ...prev, loading: true }))
-            setBlog((prev: Blog) => {
-                window.sessionStorage.setItem('selected_category', JSON.stringify(category))
-                return {...prev, selected_category: category}
-            })
+        setBlog((prev: Blog) => {
+            window.sessionStorage.setItem('selected_category', JSON.stringify(category))
+            return { ...prev, selected_category: category }
+        })
     }, [])
 
     return {

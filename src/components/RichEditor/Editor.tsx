@@ -29,7 +29,7 @@ export const Editor = ({ initialContent, setDescription }: { initialContent: str
     return (
         <>
             <button
-                type={"button"} 
+                type={"button"}
                 onClick={() => setEditable(!editable)}
                 className={"flex self-center p-2 bg-purple-950 font-extrabold text-white max-w-96 rounded-3xl"}
             >
@@ -37,7 +37,7 @@ export const Editor = ({ initialContent, setDescription }: { initialContent: str
             </button>
             <div className={!editable ? "hidden" : "p-2"}>
                 {editor && <MenuEditor editor={editor} />}
-                <EditorContent editor={editor} className={'border-4'}/>
+                <EditorContent editor={editor} className={'border-4'} />
             </div>
             <div className={editable ? "hidden" : "p-2"}>
                 <textarea

@@ -12,7 +12,7 @@ export const useGetComments = () => {
         setState(prev => ({ ...prev, loading: true }))
         getComments({ post_id: blog.selected_post.id }).then(comments => {
             setBlog((prev: Blog) => {
-                return {...prev, comments: comments}
+                return { ...prev, comments: comments }
             })
         })
             .catch(() => setState(prev => ({ ...prev, error: true })))

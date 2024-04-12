@@ -2,6 +2,8 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { useBlog } from '../../hooks/useBlog';
 import { useComment } from '../../hooks/useComment';
+import { Loader } from '../Feedback/Loader';
+import { ErrorMessage as ErrorMessageFeed } from '../Feedback/ErrorMessage';
 
 export const CommentEditForm = ({ comment }: { comment: PostComment }) => {
 
@@ -58,8 +60,8 @@ export const CommentEditForm = ({ comment }: { comment: PostComment }) => {
                         {"Delete"}
                     </button>
                 </section>
-                {isLoading && <h3 className={"text-purple-600"}>{"Loading..."}</h3>}
-                {isError && <h3 className={"text-purple-950"}>{"Not Edited"}</h3>}
+                {isLoading && <Loader />}
+                {isError && <ErrorMessageFeed />}
             </Form>
         </Formik>
     );
