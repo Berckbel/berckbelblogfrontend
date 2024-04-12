@@ -31,7 +31,7 @@ export const CategoryFilter = () => {
             validationSchema={validationSchema}
             onSubmit={handleSubmit}
         >
-            <Form className={"flex flex-col mb-10"}>
+            <Form className={"flex flex-col mb-2 self-end"}>
                 <div className={"flex flex-rwo"}>
                     <label htmlFor={"category_id"} className={"text-purple-950 font-black"}>{"Category:"}</label>
                     <CategoryList />
