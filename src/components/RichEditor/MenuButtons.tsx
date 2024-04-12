@@ -55,7 +55,7 @@ export const MenuButons = ({ editor }: { editor: Editor }) => {
     }
 
     return (
-        <menu className={"flex flex-row flex-wrap"}>
+        <menu className={"flex flex-row flex-wrap mb-5"}>
             <button type={"button"}
                 onClick={handleClickBold}
                 disabled={

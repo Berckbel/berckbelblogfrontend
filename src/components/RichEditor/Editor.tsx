@@ -35,18 +35,18 @@ export const Editor = ({ initialContent, setDescription }: { initialContent: str
             >
                 {editable ? "(Preview) => Raw" : "(Raw) => Preview"}
             </button>
-            <div className={!editable ? "hidden" : ""}>
+            <div className={!editable ? "hidden" : "p-2"}>
                 {editor && <MenuEditor editor={editor} />}
-                <EditorContent editor={editor} />
+                <EditorContent editor={editor} className={'border-4'}/>
             </div>
-            <div className={editable ? "hidden" : ""}>
+            <div className={editable ? "hidden" : "p-2"}>
                 <textarea
                     id={"description"}
                     name={"description"}
                     value={content}
                     onChange={handleTextAreaChange}
                     rows={10}
-                    className={"w-full bg-gray-100 text-gray-800"}
+                    className={"w-full bg-gray-100 text-gray-800 m-2 p-2"}
                 ></textarea>
             </div>
         </>
