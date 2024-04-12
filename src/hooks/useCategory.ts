@@ -17,7 +17,7 @@ export const useCategory = () => {
         isLoading: state.loading,
         isError: state.error,
         categories: blog.categories,
-        existSelectedCategory: blog.selected_category.id,
+        existSelectedCategory: blog.selected_category.id > 0,
         selected_category: blog.selected_category,
         selectCategory,
     }

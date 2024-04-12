@@ -23,7 +23,7 @@ export const useGetComments = () => {
     return {
         isLoading: state.loading,
         isError: state.error,
-        existComments: blog.comments.length,
+        existComments: blog.comments.length > 0,
         comments: blog.comments,
         user_id: auth.user.id
     }

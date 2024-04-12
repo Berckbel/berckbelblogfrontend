@@ -24,7 +24,7 @@ export const useGetCategories = () => {
     return {
         isLoading: state.loading,
         isError: state.error,
-        existCategories: blog.categories.length,
+        existCategories: blog.categories.length > 0,
         categories: blog.categories,
     }
 }

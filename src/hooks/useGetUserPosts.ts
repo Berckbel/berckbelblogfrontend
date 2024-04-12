@@ -26,7 +26,7 @@ export const useGetUserPosts = () => {
     return {
         isLoading: state.loading,
         isError: state.error,
-        existUserPosts: auth.user_posts.length,
+        existUserPosts: auth.user_posts.length > 0,
         user_posts: auth.user_posts,
     }
 }

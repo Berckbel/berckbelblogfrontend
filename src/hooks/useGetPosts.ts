@@ -23,7 +23,7 @@ export const useGetPosts = () => {
     return {
         isLoading: state.loading,
         isError: state.error,
-        existPosts: blog.posts.length,
+        existPosts: blog.posts.length > 0,
         posts: blog.posts,
     }
 }
