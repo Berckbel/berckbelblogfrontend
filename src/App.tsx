@@ -19,7 +19,7 @@ function App() {
   return (
       <>
       <Navbar />
-        <main className={"p-4 m-16 flex flex-col justify-center"}>
+        <main className={"p-4 m-8 flex flex-col justify-center"}>
           <Route component={Home} path={"/"} />
           {existSelectedPost && <Route component={Post} path={"/post"} />}
           {existSelectedPostEdit && isLogged &&<Route component={PostEdit} path={"/post/edit"} />}
