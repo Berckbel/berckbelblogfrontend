@@ -8,9 +8,6 @@ export const useGetUserPosts = () => {
     const [state, setState] = useState({ loading: false, error: false })
 
     useEffect(() => {
-
-        if (auth.user_posts.length > 0) return
-
         setState(prev => ({ ...prev, loading: true }))
         getUserPosts({ access: auth.access }).then(userPosts => {
             setAuth((prev: Auth) => {
