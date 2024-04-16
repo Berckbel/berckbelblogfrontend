@@ -17,7 +17,7 @@ export const Navbar = () => {
                     {isLogged && <Link to={"/profile"} className={"ml-auto mr-3 rounded-full p-2 hover:bg-purple-500"}>
                         <h3>{"Profile"}</h3>
                     </Link>}
-                    {isLogged && <button className={"ml-auto mr-3 rounded-full p-2 hover:bg-purple-500"} onClick={() => logout()}>
+                    {isLogged && <button className={"ml-auto mr-3 rounded-full p-2 hover:bg-red-700"} onClick={() => logout()}>
                         <h3>{"Logout"}</h3>
                     </button>}
                     {!isLogged && <Link to={"/login"} className={"ml-auto mr-3 rounded-full p-2 hover:bg-purple-500"}>
