@@ -17,7 +17,7 @@ export const deleteComment = ({ comment, access }: { comment: PostComment, acces
     return axios
         .delete<PostComment>(url, config)
         .then((res) => {
-            const newComment: PostComment = res.data
-            return newComment
+            const deletedComment: PostComment = res.data
+            return deletedComment
         })
 };
