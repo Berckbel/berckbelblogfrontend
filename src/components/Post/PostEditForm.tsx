@@ -7,6 +7,7 @@ import { Editor } from "../RichEditor/Editor";
 import { CategoryList } from "../Category/CategoryList";
 import { Loader } from "../Feedback/Loader";
 import { ErrorMessage as ErrorMessageFeed } from "../Feedback/ErrorMessage";
+import { validateEditFile } from "../../hepers/CustomValidations";
 
 export const PostEditForm = () => {
 
@@ -40,6 +41,8 @@ export const PostEditForm = () => {
 
     const handleSubmit = (formData: PostEditForm) => {
 
+        const isFileError = validateEditFile(image)
+
         if (description) {
             formData.description = description
         }
@@ -48,7 +51,9 @@ export const PostEditForm = () => {
             formData.image = image
         }
 
-        updateSelectedPost({ post: formData })
+        if(!isFileError){
+            updateSelectedPost({ post: formData })
+        }
 
     };
 
@@ -94,6 +99,7 @@ export const PostEditForm = () => {
                         onChange={handleImageChange}
                         className={"mt-3 mb-3"}
                     />
+                    <div id={"imageError"} className={"text-red-600 text-xl mb-2"}></div>
                 </div>
                 <div className={"flex flex-col"}>
                     <label htmlFor={"description"} className={"font-bold text-purple-950 mb-2"}>{"Description"}</label>
