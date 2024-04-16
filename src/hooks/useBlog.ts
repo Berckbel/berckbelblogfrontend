@@ -51,7 +51,7 @@ export const useBlog = () => {
 
     const updateSelectedPost = useCallback(({ post }: { post: PostEditForm }) => {
 
-        if (!(auth.user.id === post.user.id)) return
+        if (auth.user.id !== post.user.id) return
 
         setState(prev => ({ ...prev, loading: true }))
         updatePost({ access: auth.access, post })
@@ -81,13 +81,13 @@ export const useBlog = () => {
     
     const deleteUserPost = useCallback(({ post }: { post: Post }) => {
 
-        if (!(auth.user.id === post.user.id)) return
+        if (auth.user.id !== post.user.id) return
 
         setState(prev => ({ ...prev, loading: true }))
         deletePost({ access: auth.access, post })
-            .then(deletedPost => {
+            .then(() => {
                 setBlog((prev: Blog) => {
-                    const newPosts = prev.posts.filter(post => post.id !== deletedPost.id)  
+                    const newPosts = prev.posts.filter(postItem => postItem.id !== post.id)  
                     window.sessionStorage.setItem('posts', JSON.stringify(newPosts))
                     return { ...prev, posts: newPosts, selected_post: {} as Post, selected_post_edit: {} as Post }
                 })
@@ -96,7 +96,7 @@ export const useBlog = () => {
                 window.sessionStorage.setItem('selected_post', JSON.stringify({}))
 
                 setAuth((prev: Auth) => {
-                    const newPosts = prev.user_posts.filter(user_post => user_post.id !== deletedPost.id)
+                    const newPosts = prev.user_posts.filter(user_post => user_post.id !== post.id)
                     window.sessionStorage.setItem('user_posts', JSON.stringify(newPosts))
                     return { ...prev, user_posts: newPosts }
                 })
