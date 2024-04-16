@@ -22,7 +22,7 @@ export const useUser = () => {
     const register = useCallback(({ email, password, re_password }: RegisterCredentials) => {
         setState(prev => ({ ...prev, loading: true, error: false }))
         createUser({ email, password, re_password })
-            .then()
+            .then(() => setLocation("/login"))
             .catch(() => setState(prev => ({ ...prev, error: true })))
             .finally(() => setState(prev => ({ ...prev, loading: false })))
     }, [])

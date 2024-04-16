@@ -4,6 +4,7 @@ import { useLocation } from "wouter";
 import { createPost } from "../services/createPost";
 import { useGlobalAuth } from "./useAuthContext";
 import { updatePost } from "../services/updatePost";
+import { deletePost } from "../services/deletePost";
 
 export const useBlog = () => {
     const [_, setLocation] = useLocation()
@@ -77,6 +78,36 @@ export const useBlog = () => {
 
     }, [])
 
+    
+    const deleteUserPost = useCallback(({ post }: { post: Post }) => {
+
+        if (!(auth.user.id === post.user.id)) return
+
+        setState(prev => ({ ...prev, loading: true }))
+        deletePost({ access: auth.access, post })
+            .then(deletedPost => {
+                setBlog((prev: Blog) => {
+                    const newPosts = prev.posts.filter(post => post.id !== deletedPost.id)  
+                    window.sessionStorage.setItem('posts', JSON.stringify(newPosts))
+                    return { ...prev, posts: newPosts, selected_post: {} as Post, selected_post_edit: {} as Post }
+                })
+
+                window.sessionStorage.setItem('selected_post_edit', JSON.stringify({}))
+                window.sessionStorage.setItem('selected_post', JSON.stringify({}))
+
+                setAuth((prev: Auth) => {
+                    const newPosts = prev.user_posts.filter(user_post => user_post.id !== deletedPost.id)
+                    window.sessionStorage.setItem('user_posts', JSON.stringify(newPosts))
+                    return { ...prev, user_posts: newPosts }
+                })
+
+                setLocation("/profile")
+            })
+            .catch(() => setState(prev => ({ ...prev, error: true })))
+            .finally(() => setState(prev => ({ ...prev, loading: false })))
+
+    }, [])
+
     return {
         isLoading: state.loading,
         isError: state.error,
@@ -88,5 +119,6 @@ export const useBlog = () => {
         selectPostToEdit,
         createNewPost,
         updateSelectedPost,
+        deleteUserPost,
     }
 }
