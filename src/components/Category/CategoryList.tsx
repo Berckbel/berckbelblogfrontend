@@ -20,9 +20,9 @@ export const CategoryList = () => {
                     <CategoryItem key={category.id} category={category} />
                 ))}
             </Field>}
-            {!existCategories && <EmptyMesage />}
-            {isLoading && <Loader />}
-            {isError && <ErrorMessage />}
+                {!existCategories && <EmptyMesage message={"No Categories"} />}
+                {isLoading && <Loader />}
+                {isError && <ErrorMessage />}
         </>
     )
 }

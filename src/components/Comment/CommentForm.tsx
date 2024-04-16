@@ -57,7 +57,7 @@ export const CommentForm = () => {
                     {"Create"}
                 </button>
                 {isLoading && <Loader />}
-                {isError && <ErrorMessageFeed />}
+                {isError && <ErrorMessageFeed message={"Not Created"} />}
             </Form>
         </Formik>
     );

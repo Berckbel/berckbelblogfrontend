@@ -116,7 +116,7 @@ export const PostEditForm = () => {
                     {"Edit"}
                 </button>
                 {isLoading && <Loader />}
-                {isError && <ErrorMessageFeed />}
+                {isError && <ErrorMessageFeed message={"Post Not Edited"} />}
             </Form>
         </Formik>
     );

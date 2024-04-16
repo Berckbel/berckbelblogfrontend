@@ -11,7 +11,7 @@ export const ErrorMessage = ({ message }: { message?: string }) => {
                 max-w-fit
             `}
         >
-            {message ? message : "Something wen wrong :("}
+            {message ? message : "Something went wrong :("}
         </h6>
     )
 }

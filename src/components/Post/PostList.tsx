@@ -11,7 +11,7 @@ export const PostList = () => {
             {existPosts && posts.map(post => (
                 <PostItem key={post.id} post={post} />
             ))}
-            {!existPosts && <EmptyMesage />}
+            {!existPosts && <EmptyMesage message={"No Content Yet"} />}
             {isLoading && <Loader />}
             {isError && <ErrorMessage />}
         </>

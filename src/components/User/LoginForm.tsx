@@ -70,7 +70,7 @@ export const LoginForm = () => {
                     {"Login"}
                 </button>
                 {isLoading && <Loader />}
-                {isError && <ErrorMessageFeed />}
+                {isError && <ErrorMessageFeed message={"Not Logged In"} />}
             </Form>
         </Formik>
     );

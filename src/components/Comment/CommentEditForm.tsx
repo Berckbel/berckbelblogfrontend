@@ -62,7 +62,7 @@ export const CommentEditForm = ({ comment }: { comment: PostComment }) => {
                     </button>
                 </section>
                 {isLoading && <Loader />}
-                {isError && <ErrorMessageFeed />}
+                {isError && <ErrorMessageFeed message={"Not Edited"} />}
             </Form>
         </Formik>
     );

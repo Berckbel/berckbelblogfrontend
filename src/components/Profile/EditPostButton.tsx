@@ -2,7 +2,7 @@ import { useBlog } from "../../hooks/useBlog"
 
 export const EditPostButton = ({ post }: { post: Post }) => {
 
-    const { selectPostToEdit } = useBlog()
+    const { isLoading, selectPostToEdit } = useBlog()
 
     const handleClick = () => {
         selectPostToEdit({ post })
@@ -11,6 +11,7 @@ export const EditPostButton = ({ post }: { post: Post }) => {
     return (
         <button
             onClick={handleClick}
+            disabled={isLoading}
             className={"m-2 p-2 text-white bg-purple-950 rounded-full"}
         >
             {"Edit"}

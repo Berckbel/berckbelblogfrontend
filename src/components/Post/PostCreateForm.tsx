@@ -113,7 +113,7 @@ export const PostCreateForm = () => {
                     {"Create"}
                 </button>
                 {isLoading && <Loader />}
-                {isError && <ErrorMessageFeed />}
+                {isError && <ErrorMessageFeed message={"Post Not Created"} />}
             </Form>
         </Formik>
     );

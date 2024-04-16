@@ -87,7 +87,7 @@ export const RegisterForm = () => {
                     {"Register"}
                 </button>
                 {isLoading && <Loader />}
-                {isError && <ErrorMessageFeed />}
+                {isError && <ErrorMessageFeed  message={"Not Register"} />}
             </Form>
         </Formik>
     );
