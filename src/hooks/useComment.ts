@@ -3,6 +3,7 @@ import { useGlobalAuth } from "./useAuthContext"
 import { useGlobalBlog } from "./useBlogContext"
 import { createComment } from "../services/createComment"
 import { updateComment } from "../services/updateComment"
+import { deleteComment } from "../services/deleteComment"
 
 export const useComment = () => {
 
@@ -41,10 +42,31 @@ export const useComment = () => {
             .finally(() => setState(prev => ({ ...prev, loading: false })))
     }, [])
 
+    const deleteOwnedComment = useCallback(({ commentToDelete }: { commentToDelete: PostComment }) => {
+
+        if(auth.user.id !== commentToDelete.user.id) return
+
+        setState(prev => ({ ...prev, loading: true }))
+        deleteComment({ comment: commentToDelete, access: auth.access })
+            .then(deletedComment => {
+
+                console.log(deletedComment)
+
+                setBlog((prev: Blog) => {
+                    const newComments = prev.comments.filter(comment => comment.id !== commentToDelete.id)
+                    return { ...prev, comments: newComments }
+                })
+
+            })
+            .catch(() => setState(prev => ({ ...prev, error: true })))
+            .finally(() => setState(prev => ({ ...prev, loading: false })))
+    }, [])
+
     return {
         isLoading: state.loading,
         isError: state.error,
         createNewComment,
         editComment,
+        deleteOwnedComment,
     }
 }

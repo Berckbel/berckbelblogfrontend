@@ -8,7 +8,7 @@ import { ErrorMessage as ErrorMessageFeed } from '../Feedback/ErrorMessage';
 export const CommentEditForm = ({ comment }: { comment: PostComment }) => {
 
     const { selected_post } = useBlog()
-    const { isError, isLoading, editComment } = useComment()
+    const { isError, isLoading, editComment, deleteOwnedComment } = useComment()
 
     const initialValues: PostCommentEditForm = {
         comment: comment.comment,
@@ -55,6 +55,7 @@ export const CommentEditForm = ({ comment }: { comment: PostComment }) => {
                     </button>
                     <button
                         type={"button"}
+                        onClick={() => deleteOwnedComment({ commentToDelete: comment })} 
                         className={"min-w-16 max-w-16 p-1 mr-2 bg-red-700 text-white font-black"}
                     >
                         {"Delete"}
